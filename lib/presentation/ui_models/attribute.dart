@@ -45,32 +45,28 @@ extension AttributeTypeHelper on AttributeType {
 class Attribute {
   final int level;
   final int currentXp;
-  final int xpForNextLevel;
   final AttributeType attributeType;
 
-  // TODO: Đây là chưa rework hệ thống kinh nghiệm, cần phải sử a sau này
   const Attribute({
-    this.level = 1,
-    this.currentXp = 0,
-    this.xpForNextLevel = 10,
+    required this.level,
+    required this.currentXp,
     required this.attributeType,
   });
 
   double get progress => currentXp / xpForNextLevel;
 
+  int get xpForNextLevel => 5 + 5 * level * level;
+
   (Attribute, bool) gainXp(int xpAmount) {
     int newCurrentXp = currentXp + xpAmount;
 
     if (newCurrentXp >= xpForNextLevel) {
-      int newLevel = level + 1;
       newCurrentXp -= xpForNextLevel;
-      int newXpForNextLevel = xpForNextLevel + 10;
-
+      int newLevel = level + 1;
       return (
         Attribute(
           level: newLevel,
           currentXp: newCurrentXp,
-          xpForNextLevel: newXpForNextLevel,
           attributeType: attributeType,
         ),
         true,
@@ -81,7 +77,6 @@ class Attribute {
       Attribute(
         level: level,
         currentXp: newCurrentXp,
-        xpForNextLevel: xpForNextLevel,
         attributeType: attributeType,
       ),
       false,

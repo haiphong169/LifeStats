@@ -4,21 +4,21 @@ import 'package:flutter/widgets.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
 import 'package:rpg_self_improvement_app/data/repositories/habit/habit_repository.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
-import 'package:rpg_self_improvement_app/utils/adapters/habit_mapper.dart';
+import 'package:rpg_self_improvement_app/utils/adapters/mapper_helper.dart';
 
 class HabitNotifier with ChangeNotifier {
   final HabitRepository _repository;
 
   HabitNotifier(this._repository);
 
-  final List<Habit> _habits = [];
+  List<Habit> _habits = [];
 
   UnmodifiableListView<Habit> get habits => UnmodifiableListView(_habits);
 
   Future<void> fetchHabits() async {
     final habitDtos = await _repository.fetchAllHabits();
-    _habits.clear();
-    _habits.addAll(habitDtos.map((habit) => HabitMapper().fromHabitDto(habit)));
+    _habits =
+        habitDtos.map((habit) => MapperHelper().fromHabitDto(habit)).toList();
     notifyListeners();
   }
 

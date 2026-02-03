@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
+import 'package:rpg_self_improvement_app/data/repositories/attribute/attribute_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/habit/habit_repository_local.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifier.dart';
@@ -15,8 +17,10 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(AttributeTypeAdapter());
   Hive.registerAdapter(HabitDtoAdapter());
+  Hive.registerAdapter(AttributeDtoAdapter());
 
   final habitRepository = HabitRepositoryLocal();
+  final attributeRepository = AttributeRepositoryLocal();
 
   runApp(
     MultiProvider(
@@ -29,7 +33,13 @@ void main() async {
             return notifier;
           },
         ),
-        ChangeNotifierProvider(create: (_) => AttributeNotifier()),
+        ChangeNotifierProvider(
+          create: (_) {
+            final notifier = AttributeNotifier(attributeRepository);
+            notifier.fetchAttributes();
+            return notifier;
+          },
+        ),
         Provider<GameMaster>(
           create:
               (context) => GameMaster(

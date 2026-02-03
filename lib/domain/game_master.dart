@@ -14,14 +14,14 @@ class GameMaster {
     required this.attributeNotifier,
   });
 
-  void completeHabit(String id, AttributeType attributeType) {
+  Future<void> completeHabit(String id, AttributeType attributeType) async {
     habitNotifier.checkHabit(id);
     final didLevelUp = attributeNotifier.gainAttributeExperience(
       5,
       attributeType,
     );
 
-    if (didLevelUp) {
+    if (await didLevelUp) {
       expNotifier.gainXp(5);
     }
   }

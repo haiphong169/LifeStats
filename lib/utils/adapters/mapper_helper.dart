@@ -1,8 +1,10 @@
 import 'package:intl/intl.dart';
+import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
 
-class HabitMapper {
+class MapperHelper {
   Habit fromHabitDto(HabitDto dto) {
     var isCompleted = false;
 
@@ -12,11 +14,8 @@ class HabitMapper {
       final lastCompletedDate = DateTime.fromMillisecondsSinceEpoch(timestamp);
       final now = DateTime.now();
       final dateFormatter = DateFormat('dd/MM/yyyy');
-      print(dateFormatter.format(lastCompletedDate));
-      print(dateFormatter.format(now));
       if (dateFormatter.format(lastCompletedDate) ==
           dateFormatter.format(now)) {
-        print("hey");
         isCompleted = true;
       }
     }
@@ -27,6 +26,14 @@ class HabitMapper {
       title: dto.title,
       attributeType: dto.attributeType,
       isCompleted: isCompleted,
+    );
+  }
+
+  Attribute fromAttributeDto(AttributeDto attributeDto) {
+    return Attribute(
+      level: attributeDto.level,
+      currentXp: attributeDto.currentExp,
+      attributeType: attributeDto.attributeType,
     );
   }
 }
