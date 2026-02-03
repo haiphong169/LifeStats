@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
+import 'package:rpg_self_improvement_app/data/dto/character_experience_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
 import 'package:rpg_self_improvement_app/data/repositories/attribute/attribute_repository_local.dart';
+import 'package:rpg_self_improvement_app/data/repositories/character_experience/character_experience_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/habit/habit_repository_local.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifier.dart';
@@ -18,14 +20,22 @@ void main() async {
   Hive.registerAdapter(AttributeTypeAdapter());
   Hive.registerAdapter(HabitDtoAdapter());
   Hive.registerAdapter(AttributeDtoAdapter());
+  Hive.registerAdapter(CharacterExperienceDtoAdapter());
 
   final habitRepository = HabitRepositoryLocal();
   final attributeRepository = AttributeRepositoryLocal();
+  final characterExperienceRepository = CharacterExperienceRepositoryLocal();
 
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ExpNotifier()),
+        ChangeNotifierProvider(
+          create: (_) {
+            final notifier = ExpNotifier(characterExperienceRepository);
+            notifier.fetchCharacterExperience();
+            return notifier;
+          },
+        ),
         ChangeNotifierProvider(
           create: (_) {
             final notifier = HabitNotifier(habitRepository);
