@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rpg_self_improvement_app/presentation/screens/add_task_screen.dart';
-import 'package:rpg_self_improvement_app/presentation/screens/task_archive_screen.dart';
+import 'package:rpg_self_improvement_app/presentation/screens/add_habit_screen.dart';
 
-enum NavigationRoute { home, addTask, settings, taskArchive }
+enum NavigationRoute { home, addTask, settings }
 
 void navigateToRoute(NavigationRoute route, BuildContext context) {
   switch (route) {
@@ -14,13 +13,6 @@ void navigateToRoute(NavigationRoute route, BuildContext context) {
       );
       break;
     case NavigationRoute.settings:
-      break;
-    case NavigationRoute.taskArchive:
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (context) => const TaskArchiveScreen(),
-        ),
-      );
       break;
   }
 }

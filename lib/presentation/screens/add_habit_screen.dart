@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rpg_self_improvement_app/presentation/notifiers/task_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
-import 'package:rpg_self_improvement_app/presentation/ui_models/task.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -74,17 +74,17 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           ElevatedButton(
             onPressed: () {
               if (_selectedAttributeType == null) return;
-              final newTask = Task(
+              final newTask = Habit(
                 id: DateTime.now().toString(),
                 title: _titleController.text,
                 description: _descriptionController.text,
                 isCompleted: false,
                 attributeType: _selectedAttributeType!,
               );
-              context.read<TaskNotifier>().addTask(newTask);
+              context.read<HabitNotifier>().addHabit(newTask);
               Navigator.of(context).pop();
             },
-            child: const Text('Add Task'),
+            child: const Text('Add Habit'),
           ),
         ],
       ),

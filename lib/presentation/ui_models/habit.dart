@@ -1,13 +1,13 @@
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 
-class Task {
+class Habit {
   final String id;
   final String title;
   final String description;
   final bool isCompleted;
   final AttributeType attributeType;
 
-  Task({
+  Habit({
     required this.id,
     required this.title,
     required this.description,
@@ -15,8 +15,8 @@ class Task {
     required this.attributeType,
   });
 
-  Task completedTask() {
-    return Task(
+  Habit completedHabit() {
+    return Habit(
       id: id,
       title: title,
       description: description,

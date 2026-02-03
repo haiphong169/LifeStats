@@ -1,4 +1,18 @@
-enum AttributeType { strength, intelligence, luck, charisma }
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'attribute.g.dart';
+
+@HiveType(typeId: 0)
+enum AttributeType {
+  @HiveField(0)
+  strength,
+  @HiveField(1)
+  intelligence,
+  @HiveField(2)
+  luck,
+  @HiveField(3)
+  charisma,
+}
 
 extension AttributeTypeHelper on AttributeType {
   String get icon {
