@@ -2,6 +2,7 @@ import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifi
 import 'package:rpg_self_improvement_app/presentation/notifiers/exp_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
 
 class GameMaster {
   final ExpNotifier expNotifier;
@@ -25,6 +26,23 @@ class GameMaster {
       expNotifier.gainXp(5);
     }
   }
+
+  void addHabit(Habit habit) {
+    int attributeHabitLength =
+        habitNotifier.habits
+            .where((h) => h.attributeType == habit.attributeType)
+            .length;
+    int attributeLevel =
+        attributeNotifier.gameAttributes[habit.attributeType]!.level;
+    int limit = habitLimitForAttributeLevel(attributeLevel);
+
+    if (attributeHabitLength < limit) {
+      habitNotifier.addHabit(habit);
+    }
+  }
+
+  int habitLimitForAttributeLevel(int attributeLevel) =>
+      (attributeLevel / 5).ceil();
 
   void deleteHabit(String id) {
     habitNotifier.deleteHabit(id);
