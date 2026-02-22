@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
+import 'package:rpg_self_improvement_app/data/dto/character_class_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/character_experience_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
 import 'package:rpg_self_improvement_app/data/repositories/attribute/attribute_repository_local.dart';
+import 'package:rpg_self_improvement_app/data/repositories/character_class/character_class_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/character_experience/character_experience_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/habit/habit_repository_local.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/character_class_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/exp_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/screens/home_screen.dart';
@@ -21,10 +24,13 @@ void main() async {
   Hive.registerAdapter(HabitDtoAdapter());
   Hive.registerAdapter(AttributeDtoAdapter());
   Hive.registerAdapter(CharacterExperienceDtoAdapter());
+  Hive.registerAdapter(CharacterClassAdapter());
+  Hive.registerAdapter(CharacterClassDtoAdapter());
 
   final habitRepository = HabitRepositoryLocal();
   final attributeRepository = AttributeRepositoryLocal();
   final characterExperienceRepository = CharacterExperienceRepositoryLocal();
+  final characterClassRepository = CharacterClassRepositoryLocal();
 
   runApp(
     MultiProvider(
@@ -50,12 +56,20 @@ void main() async {
             return notifier;
           },
         ),
+        ChangeNotifierProvider(
+          create: (_) {
+            final notifier = CharacterClassNotifier(characterClassRepository);
+            notifier.fetchCharacterClass();
+            return notifier;
+          },
+        ),
         Provider<GameMaster>(
           create:
               (context) => GameMaster(
                 expNotifier: context.read<ExpNotifier>(),
                 habitNotifier: context.read<HabitNotifier>(),
                 attributeNotifier: context.read<AttributeNotifier>(),
+                characterClassNotifier: context.read<CharacterClassNotifier>(),
               ),
         ),
       ],

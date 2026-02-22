@@ -24,7 +24,7 @@ class AttributeNotifier with ChangeNotifier {
 
     _gameAttributes = {
       for (final attribute in attributes)
-        attribute.attributeType: MapperHelper().fromAttributeDto(attribute),
+        attribute.attributeType: MapperHelper.fromAttributeDto(attribute),
     };
     notifyListeners();
   }

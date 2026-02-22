@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
-import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
 

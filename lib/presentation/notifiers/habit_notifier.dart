@@ -18,7 +18,7 @@ class HabitNotifier with ChangeNotifier {
   Future<void> fetchHabits() async {
     final habitDtos = await _repository.fetchAllHabits();
     _habits =
-        habitDtos.map((habit) => MapperHelper().fromHabitDto(habit)).toList();
+        habitDtos.map((habit) => MapperHelper.fromHabitDto(habit)).toList();
     notifyListeners();
   }
 

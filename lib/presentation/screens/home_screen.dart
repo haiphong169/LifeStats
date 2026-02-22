@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rpg_self_improvement_app/data/dto/character_class_dto.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/character_class_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/exp_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/widgets/attribute_display.dart';
@@ -19,6 +21,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text("LifeStats"),
         actions: [
           IconButton(
+            onPressed:
+                () => navigateToRoute(NavigationRoute.classSelection, context),
+            icon: Icon(Icons.person),
+          ),
+          IconButton(
             onPressed: () => navigateToRoute(NavigationRoute.addTask, context),
             icon: Icon(Icons.add),
           ),
@@ -27,9 +34,15 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Consumer2<ExpNotifier, AttributeNotifier>(
+            Consumer3<ExpNotifier, AttributeNotifier, CharacterClassNotifier>(
               builder:
-                  (context, expNotifier, attributeNotifier, child) => SizedBox(
+                  (
+                    context,
+                    expNotifier,
+                    attributeNotifier,
+                    characterClassNotifier,
+                    child,
+                  ) => SizedBox(
                     height: MediaQuery.of(context).size.height / 2,
                     child: Row(
                       children: [
@@ -56,10 +69,20 @@ class HomeScreen extends StatelessWidget {
                               Text(
                                 "${expNotifier.currentXp}/${expNotifier.xpForNextLevel}",
                               ),
-                              SizedBox(height: 15),
+                              SizedBox(height: 10),
                               AnimatedExperienceBar(
                                 progress: expNotifier.progress,
                               ),
+                              SizedBox(height: 10),
+                              characterClassNotifier.characterClass == null
+                                  ? CircularProgressIndicator()
+                                  : Image.asset(
+                                    characterClassNotifier
+                                        .characterClass!
+                                        .classImage,
+                                    height: 60,
+                                    width: 60,
+                                  ),
                             ],
                           ),
                         ),
