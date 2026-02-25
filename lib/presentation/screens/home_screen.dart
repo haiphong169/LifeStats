@@ -6,6 +6,7 @@ import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifi
 import 'package:rpg_self_improvement_app/presentation/notifiers/character_class_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/exp_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/inventory_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/widgets/attribute_display.dart';
 import 'package:rpg_self_improvement_app/presentation/widgets/experience_bar.dart';
 import 'package:rpg_self_improvement_app/presentation/widgets/habit_list_tile.dart';
@@ -21,8 +22,12 @@ class HomeScreen extends StatelessWidget {
         title: const Text("LifeStats"),
         actions: [
           IconButton(
+            onPressed: () => navigateToRoute(NavigationRoute.shop, context),
+            icon: Icon(Icons.shop),
+          ),
+          IconButton(
             onPressed:
-                () => navigateToRoute(NavigationRoute.classSelection, context),
+                () => navigateToRoute(NavigationRoute.inventory, context),
             icon: Icon(Icons.person),
           ),
           IconButton(
@@ -34,13 +39,19 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Consumer3<ExpNotifier, AttributeNotifier, CharacterClassNotifier>(
+            Consumer4<
+              ExpNotifier,
+              AttributeNotifier,
+              CharacterClassNotifier,
+              InventoryNotifier
+            >(
               builder:
                   (
                     context,
                     expNotifier,
                     attributeNotifier,
                     characterClassNotifier,
+                    inventoryNotifier,
                     child,
                   ) => SizedBox(
                     height: MediaQuery.of(context).size.height / 2,
@@ -76,13 +87,22 @@ class HomeScreen extends StatelessWidget {
                               SizedBox(height: 10),
                               characterClassNotifier.characterClass == null
                                   ? CircularProgressIndicator()
-                                  : Image.asset(
-                                    characterClassNotifier
-                                        .characterClass!
-                                        .classImage,
-                                    height: 60,
-                                    width: 60,
+                                  : InkWell(
+                                    onTap:
+                                        () => navigateToRoute(
+                                          NavigationRoute.classSelection,
+                                          context,
+                                        ),
+                                    child: Image.asset(
+                                      characterClassNotifier
+                                          .characterClass!
+                                          .classImage,
+                                      height: 60,
+                                      width: 60,
+                                    ),
                                   ),
+                              SizedBox(height: 8),
+                              Text('Gold: ${inventoryNotifier.gold}'),
                             ],
                           ),
                         ),

@@ -2,8 +2,11 @@ import 'package:intl/intl.dart';
 import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/character_class_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
+import 'package:rpg_self_improvement_app/data/dto/item_dto.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/habit.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/item/item.dart';
+import 'package:rpg_self_improvement_app/utils/shop_items.dart';
 
 class MapperHelper {
   static Habit fromHabitDto(HabitDto dto) {
@@ -61,5 +64,12 @@ class MapperHelper {
       CharacterClass.lover => AttributeType.charisma,
       _ => null,
     };
+  }
+
+  static Item fromItemDto(ItemDto itemDto) {
+    final resultItem = INITIAL_ITEMS.firstWhere(
+      (item) => item.name == itemDto.name,
+    );
+    return itemDto.isEquipped ? resultItem.equippedItem() : resultItem;
   }
 }

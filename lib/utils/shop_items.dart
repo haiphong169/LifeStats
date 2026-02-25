@@ -1,0 +1,103 @@
+import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/item/item.dart';
+import 'package:rpg_self_improvement_app/presentation/ui_models/item/weapon.dart';
+import 'package:rpg_self_improvement_app/utils/constants.dart';
+
+const List<Item> INITIAL_ITEMS = [
+  Weapon(
+    name: 'Sword 1',
+    description: 'Add 10% to Strength EXP gain',
+    imageUrl: 'assets/images/items/weapons/sword_1.png',
+    price: 10 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 10,
+    attributeType: AttributeType.strength,
+  ),
+  Weapon(
+    name: 'Sword 2',
+    description: 'Add 20% to Strength EXP gain',
+    imageUrl: 'assets/images/items/weapons/sword_2.png',
+    price: 20 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 20,
+    attributeType: AttributeType.strength,
+  ),
+  Weapon(
+    name: 'Sword 3',
+    description: 'Add 50% to Strength EXP gain',
+    imageUrl: 'assets/images/items/weapons/sword_3.png',
+    price: 50 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 50,
+    attributeType: AttributeType.strength,
+  ),
+  Weapon(
+    name: 'Staff 1',
+    description: 'Add 10% to Intelligence EXP gain',
+    imageUrl: 'assets/images/items/weapons/staff_1.png',
+    price: 10 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 10,
+    attributeType: AttributeType.intelligence,
+  ),
+  Weapon(
+    name: 'Staff 2',
+    description: 'Add 20% to Intelligence EXP gain',
+    imageUrl: 'assets/images/items/weapons/staff_2.png',
+    price: 20 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 20,
+    attributeType: AttributeType.intelligence,
+  ),
+  Weapon(
+    name: 'Staff 3',
+    description: 'Add 50% to Intelligence EXP gain',
+    imageUrl: 'assets/images/items/weapons/staff_3.png',
+    price: 50 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 50,
+    attributeType: AttributeType.intelligence,
+  ),
+  Weapon(
+    name: 'Gun 1',
+    description: 'Add 10% to Luck EXP gain',
+    imageUrl: 'assets/images/items/weapons/gun_1.png',
+    price: 10 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 10,
+    attributeType: AttributeType.luck,
+  ),
+  Weapon(
+    name: 'Gun 2',
+    description: 'Add 20% to Luck EXP gain',
+    imageUrl: 'assets/images/items/weapons/gun_2.png',
+    price: 20 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 20,
+    attributeType: AttributeType.luck,
+  ),
+  Weapon(
+    name: 'Gun 3',
+    description: 'Add 50% to Luck EXP gain',
+    imageUrl: 'assets/images/items/weapons/gun_3.png',
+    price: 50 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 50,
+    attributeType: AttributeType.luck,
+  ),
+  Weapon(
+    name: 'Bow 1',
+    description: 'Add 10% to Charisma EXP gain',
+    imageUrl: 'assets/images/items/weapons/bow_1.png',
+    price: 10 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 10,
+    attributeType: AttributeType.charisma,
+  ),
+  Weapon(
+    name: 'Bow 2',
+    description: 'Add 20% to Charisma EXP gain',
+    imageUrl: 'assets/images/items/weapons/bow_2.png',
+    price: 20 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 20,
+    attributeType: AttributeType.charisma,
+  ),
+  Weapon(
+    name: 'Bow 3',
+    description: 'Add 50% to Charisma EXP gain',
+    imageUrl: 'assets/images/items/weapons/bow_3.png',
+    price: 50 * GOLD_PER_HABIT_COMPLETION,
+    attributeBonusExperience: 50,
+    attributeType: AttributeType.charisma,
+  ),
+];

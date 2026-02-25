@@ -1,0 +1,1 @@
+const int GOLD_PER_HABIT_COMPLETION = 5;

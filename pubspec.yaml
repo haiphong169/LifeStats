@@ -36,3 +36,5 @@ flutter:
   assets:
     - assets/images/
     - assets/images/attribute_icons/
+    - assets/images/items/
+    - assets/images/items/weapons/

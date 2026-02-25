@@ -5,15 +5,19 @@ import 'package:rpg_self_improvement_app/data/dto/attribute_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/character_class_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/character_experience_dto.dart';
 import 'package:rpg_self_improvement_app/data/dto/habit_dto.dart';
+import 'package:rpg_self_improvement_app/data/dto/item_dto.dart';
 import 'package:rpg_self_improvement_app/data/repositories/attribute/attribute_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/character_class/character_class_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/character_experience/character_experience_repository_local.dart';
 import 'package:rpg_self_improvement_app/data/repositories/habit/habit_repository_local.dart';
+import 'package:rpg_self_improvement_app/data/repositories/inventory/inventory_repository_local.dart';
 import 'package:rpg_self_improvement_app/domain/game_master.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/attribute_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/character_class_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/exp_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/notifiers/habit_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/inventory_notifier.dart';
+import 'package:rpg_self_improvement_app/presentation/notifiers/shop_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/screens/home_screen.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 
@@ -26,11 +30,13 @@ void main() async {
   Hive.registerAdapter(CharacterExperienceDtoAdapter());
   Hive.registerAdapter(CharacterClassAdapter());
   Hive.registerAdapter(CharacterClassDtoAdapter());
+  Hive.registerAdapter(ItemDtoAdapter());
 
   final habitRepository = HabitRepositoryLocal();
   final attributeRepository = AttributeRepositoryLocal();
   final characterExperienceRepository = CharacterExperienceRepositoryLocal();
   final characterClassRepository = CharacterClassRepositoryLocal();
+  final inventoryRepository = InventoryRepositoryLocal();
 
   runApp(
     MultiProvider(
@@ -63,6 +69,21 @@ void main() async {
             return notifier;
           },
         ),
+        ChangeNotifierProvider(
+          create: (_) {
+            final notifier = InventoryNotifier(inventoryRepository);
+            notifier.loadInventory();
+            return notifier;
+          },
+        ),
+
+        ChangeNotifierProxyProvider<InventoryNotifier, ShopNotifier>(
+          create: (_) => ShopNotifier(),
+          update: (context, inventoryNotifier, shopNotifier) {
+            shopNotifier!.update(inventoryNotifier);
+            return shopNotifier;
+          },
+        ),
         Provider<GameMaster>(
           create:
               (context) => GameMaster(
@@ -70,6 +91,7 @@ void main() async {
                 habitNotifier: context.read<HabitNotifier>(),
                 attributeNotifier: context.read<AttributeNotifier>(),
                 characterClassNotifier: context.read<CharacterClassNotifier>(),
+                inventoryNotifier: context.read<InventoryNotifier>(),
               ),
         ),
       ],
