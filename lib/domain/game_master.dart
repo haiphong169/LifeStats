@@ -72,8 +72,14 @@ class GameMaster {
   int habitLimitForAttributeLevel(int attributeLevel) =>
       (attributeLevel / 5).ceil();
 
-  void deleteHabit(String id) {
+  bool deleteHabit(String id) {
+    if (habitNotifier.habits
+        .firstWhere((habit) => habit.id == id)
+        .isCompleted) {
+      return false;
+    }
     habitNotifier.deleteHabit(id);
+    return true;
   }
 
   void selectCharacterClass(CharacterClass characterClass) {

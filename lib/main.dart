@@ -20,6 +20,7 @@ import 'package:rpg_self_improvement_app/presentation/notifiers/inventory_notifi
 import 'package:rpg_self_improvement_app/presentation/notifiers/shop_notifier.dart';
 import 'package:rpg_self_improvement_app/presentation/screens/home_screen.dart';
 import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
+import 'package:rpg_self_improvement_app/utils/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -105,6 +106,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: appThemeData,
+      home: HomeScreen(),
+    );
   }
 }

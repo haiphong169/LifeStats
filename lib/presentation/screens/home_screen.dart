@@ -127,10 +127,18 @@ class HomeScreen extends StatelessWidget {
                             habit.attributeType,
                           );
                         },
-                        onDeleteHabit:
-                            () => context.read<GameMaster>().deleteHabit(
-                              habit.id,
-                            ),
+                        onDeleteHabit: () {
+                          final result = context.read<GameMaster>().deleteHabit(
+                            habit.id,
+                          );
+                          if (!result) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Must be an incompleted habit."),
+                              ),
+                            );
+                          }
+                        },
                       );
                     },
                     itemCount: uncompletedTasks.length,
