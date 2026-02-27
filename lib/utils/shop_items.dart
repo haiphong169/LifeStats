@@ -9,7 +9,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 10% to Strength EXP gain',
     imageUrl: 'assets/images/items/weapons/sword_1.png',
     price: 10 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 10,
+    attributeBonusExperience: 1.1,
     attributeType: AttributeType.strength,
   ),
   Weapon(
@@ -17,7 +17,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 20% to Strength EXP gain',
     imageUrl: 'assets/images/items/weapons/sword_2.png',
     price: 20 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 20,
+    attributeBonusExperience: 1.2,
     attributeType: AttributeType.strength,
   ),
   Weapon(
@@ -25,7 +25,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 50% to Strength EXP gain',
     imageUrl: 'assets/images/items/weapons/sword_3.png',
     price: 50 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 50,
+    attributeBonusExperience: 1.5,
     attributeType: AttributeType.strength,
   ),
   Weapon(
@@ -33,7 +33,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 10% to Intelligence EXP gain',
     imageUrl: 'assets/images/items/weapons/staff_1.png',
     price: 10 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 10,
+    attributeBonusExperience: 1.1,
     attributeType: AttributeType.intelligence,
   ),
   Weapon(
@@ -41,7 +41,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 20% to Intelligence EXP gain',
     imageUrl: 'assets/images/items/weapons/staff_2.png',
     price: 20 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 20,
+    attributeBonusExperience: 1.2,
     attributeType: AttributeType.intelligence,
   ),
   Weapon(
@@ -49,7 +49,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 50% to Intelligence EXP gain',
     imageUrl: 'assets/images/items/weapons/staff_3.png',
     price: 50 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 50,
+    attributeBonusExperience: 1.5,
     attributeType: AttributeType.intelligence,
   ),
   Weapon(
@@ -57,7 +57,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 10% to Luck EXP gain',
     imageUrl: 'assets/images/items/weapons/gun_1.png',
     price: 10 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 10,
+    attributeBonusExperience: 1.1,
     attributeType: AttributeType.luck,
   ),
   Weapon(
@@ -65,7 +65,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 20% to Luck EXP gain',
     imageUrl: 'assets/images/items/weapons/gun_2.png',
     price: 20 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 20,
+    attributeBonusExperience: 1.2,
     attributeType: AttributeType.luck,
   ),
   Weapon(
@@ -73,7 +73,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 50% to Luck EXP gain',
     imageUrl: 'assets/images/items/weapons/gun_3.png',
     price: 50 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 50,
+    attributeBonusExperience: 1.5,
     attributeType: AttributeType.luck,
   ),
   Weapon(
@@ -81,7 +81,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 10% to Charisma EXP gain',
     imageUrl: 'assets/images/items/weapons/bow_1.png',
     price: 10 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 10,
+    attributeBonusExperience: 1.1,
     attributeType: AttributeType.charisma,
   ),
   Weapon(
@@ -89,7 +89,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 20% to Charisma EXP gain',
     imageUrl: 'assets/images/items/weapons/bow_2.png',
     price: 20 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 20,
+    attributeBonusExperience: 1.2,
     attributeType: AttributeType.charisma,
   ),
   Weapon(
@@ -97,7 +97,7 @@ const List<Item> INITIAL_ITEMS = [
     description: 'Add 50% to Charisma EXP gain',
     imageUrl: 'assets/images/items/weapons/bow_3.png',
     price: 50 * GOLD_PER_HABIT_COMPLETION,
-    attributeBonusExperience: 50,
+    attributeBonusExperience: 1.5,
     attributeType: AttributeType.charisma,
   ),
 ];

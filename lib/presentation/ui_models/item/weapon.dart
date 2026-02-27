@@ -3,7 +3,7 @@ import 'package:rpg_self_improvement_app/presentation/ui_models/attribute.dart';
 import 'item.dart';
 
 class Weapon extends Item {
-  final int attributeBonusExperience;
+  final double attributeBonusExperience;
   final AttributeType attributeType;
 
   const Weapon({

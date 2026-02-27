@@ -35,16 +35,30 @@ class HabitListTile extends StatelessWidget {
           },
         );
       },
-      child: Container(
-        child: ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          leading: Checkbox(value: habit.isCompleted, onChanged: onCheck),
-          title: Text(habit.title),
-          subtitle: Text(habit.description),
-          trailing: Image.asset(
-            habit.attributeType.icon,
-            height: 50,
-            width: 60,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+          child: Row(
+            children: [
+              Checkbox(value: habit.isCompleted, onChanged: onCheck),
+              SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      habit.title,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    Text(
+                      habit.description,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ),
+              Image.asset(habit.attributeType.icon, height: 60),
+            ],
           ),
         ),
       ),

@@ -38,6 +38,7 @@ flutter:
     - assets/images/attribute_icons/
     - assets/images/items/
     - assets/images/items/weapons/
+    - assets/images/user_action_icons/
   fonts:
     - family: Cinzel
       fonts:
