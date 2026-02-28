@@ -19,7 +19,7 @@ void navigateToRoute(NavigationRoute route, BuildContext context) {
       break;
     case NavigationRoute.addTask:
       Navigator.of(context).push(
-        MaterialPageRoute<void>(builder: (context) => const AddTaskScreen()),
+        MaterialPageRoute<void>(builder: (context) => const AddHabitScreen()),
       );
       break;
     case NavigationRoute.settings:

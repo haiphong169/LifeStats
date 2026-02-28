@@ -31,6 +31,21 @@ extension CharacterClassHelper on CharacterClass {
         return "assets/images/normie.png";
     }
   }
+
+  String get classEffectDescription {
+    switch (this) {
+      case CharacterClass.warrior:
+        return "Bonus 50% XP for Strength habits completion, reduces 20% XP gain from all other habits";
+      case CharacterClass.wizard:
+        return "Bonus 50% XP for Intelligence habits completion, reduces 20% XP gain from all other habits";
+      case CharacterClass.merchant:
+        return "Bonus 50% XP for Luck habits completion, reduces 20% XP gain from all other habits";
+      case CharacterClass.lover:
+        return "Bonus 50% XP for Charisma habits completion, reduces 20% XP gain from all other habits";
+      case CharacterClass.normie:
+        return "No special bonuses or penalties. Balanced XP gain across all habit types.";
+    }
+  }
 }
 
 @HiveType(typeId: 5)
