@@ -1,6 +1,6 @@
-# RPG Self Improvement App
+# LifeStats
 
-A gamified self-improvement Flutter app where you build real-life habits and skills through an RPG-inspired progression system.
+A gamified self-improvement Flutter app where you build and maintain real-life habits through an RPG-inspired progression system.
 
 ---
 
@@ -8,25 +8,25 @@ A gamified self-improvement Flutter app where you build real-life habits and ski
 
 ### 🏠 Home Screen
 
-The main hub displaying your character's stats, level, and daily progress overview.
+The main hub displaying your character's attributes and level overview.
 
 ![Home Screen](assets/images/screenshots/home_screenshot.jpg)
 
 ---
 
-### ⚔️ Class Selection — Step 1
+### ⚔️ Class Selection — Image 1
 
-Choose your character class to define your playstyle and starting attributes.
+Choose your character class to define your playstyle and attribute gains modifier.
 
-![Class Selection Step 1](assets/images/screenshots/class_selection_screenshot_1.jpg)
+![Class Selection](assets/images/screenshots/class_selection_screenshot_1.jpg)
 
 ---
 
 ### ⚔️ Class Selection — Step 2
 
-Confirm your class and review its unique bonuses before beginning your journey.
+Choose your character class to define your playstyle and attribute gains modifier.
 
-![Class Selection Step 2](assets/images/screenshots/class_selection_screenshot_2.jpg)
+![Class Selection](assets/images/screenshots/class_selection_screenshot_2.jpg)
 
 ---
 
@@ -40,6 +40,6 @@ Create and customize new habits to track, earning XP as you complete them.
 
 ### 🛒 Shop
 
-Spend your earned currency on rewards, items, and cosmetics for your character.
+Spend your earned currency on items to further boost your XP gains.
 
 ![Shop](assets/images/screenshots/shop_screenshot.jpg)
