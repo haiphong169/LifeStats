@@ -8,7 +8,7 @@ final appThemeData = ThemeData(
     seedColor: const Color(0xFFFFEB3B),
     brightness: Brightness.dark,
   ).copyWith(surface: const Color(0xFF2A2A2E)),
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: const Color(0xFF2A2A2E),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
