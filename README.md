@@ -10,7 +10,7 @@ A gamified self-improvement Flutter app where you build and maintain real-life h
 
 The main hub displaying your character's attributes and level overview.
 
-![Home Screen](assets/images/screenshots/home_screenshot.jpg)
+<img src="assets/images/screenshots/home_screenshot.jpg" width="300" alt="Home Screen">
 
 ---
 
@@ -18,7 +18,7 @@ The main hub displaying your character's attributes and level overview.
 
 Choose your character class to define your playstyle and attribute gains modifier.
 
-![Class Selection](assets/images/screenshots/class_selection_screenshot_1.jpg)
+<img src="assets/images/screenshots/class_selection_screenshot_1.jpg" width="300" alt="Class Selection 1">
 
 ---
 
@@ -26,7 +26,7 @@ Choose your character class to define your playstyle and attribute gains modifie
 
 Choose your character class to define your playstyle and attribute gains modifier.
 
-![Class Selection](assets/images/screenshots/class_selection_screenshot_2.jpg)
+<img src="assets/images/screenshots/class_selection_screenshot_2.jpg" width="300" alt="Class Selection 2">
 
 ---
 
@@ -34,7 +34,7 @@ Choose your character class to define your playstyle and attribute gains modifie
 
 Create and customize new habits to track, earning XP as you complete them.
 
-![Add Habit](assets/images/screenshots/add_habit_screenshots.jpg)
+<img src="assets/images/screenshots/add_habit_screenshots.jpg" width="300" alt="Add Habit">
 
 ---
 
@@ -42,4 +42,4 @@ Create and customize new habits to track, earning XP as you complete them.
 
 Spend your earned currency on items to further boost your XP gains.
 
-![Shop](assets/images/screenshots/shop_screenshot.jpg)
+<img src="assets/images/screenshots/shop_screenshot.jpg" width="300" alt="Shop">
