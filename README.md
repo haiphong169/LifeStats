@@ -14,7 +14,7 @@ The main hub displaying your character's attributes and level overview.
 
 ---
 
-### ⚔️ Class Selection — Image 1
+### ⚔️ Class Selection — Screenshot 1
 
 Choose your character class to define your playstyle and attribute gains modifier.
 
@@ -22,7 +22,7 @@ Choose your character class to define your playstyle and attribute gains modifie
 
 ---
 
-### ⚔️ Class Selection — Step 2
+### ⚔️ Class Selection — Screenshot 2
 
 Choose your character class to define your playstyle and attribute gains modifier.
 
@@ -32,7 +32,7 @@ Choose your character class to define your playstyle and attribute gains modifie
 
 ### ✅ Add Habit
 
-Create and customize new habits to track, earning XP as you complete them.
+Create new habits to track, earning XP as you complete them.
 
 <img src="assets/images/screenshots/add_habit_screenshots.jpg" width="300" alt="Add Habit">
 
